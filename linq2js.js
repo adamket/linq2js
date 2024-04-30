@@ -38,3 +38,10 @@ Array.prototype.SelectMany = function (selector) {
     return this.flatMap(selector);
 };
 
+Array.prototype.Sum = function(selector) {
+  if (typeof selector === 'function') {
+    return this.map(selector).reduce((acc, val) => acc + val, 0);
+  } else {
+    return this.reduce((acc, val) => acc + val, 0);
+  }
+};
